@@ -17,13 +17,14 @@ public class CongratScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-    
+        Text = GetComponent<TextMesh>();
 
         TimeToNextText = 0.0f;
         CurrentText = 0;
 
-        RotatingSpeed = 1.0f;
+        RotatingSpeed = 50.0f;
 
+        TextToDisplay = new List<string>();
         TextToDisplay.Add("Congratulation");
         TextToDisplay.Add("All Errors Fixed");
 
@@ -51,5 +52,7 @@ public class CongratScript : MonoBehaviour
             Text.text = TextToDisplay[CurrentText];
 
         }
+
+        transform.Rotate(new Vector3(1, 0, 0) * RotatingSpeed * Time.deltaTime);
     }
 }
